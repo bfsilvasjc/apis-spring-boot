@@ -31,7 +31,7 @@ através do caminho `localhost:8080/swagger-ui/`.
 
 ## 🚀 Instalação
 A porta padrão é **8080**. Ao iniciar seu projeto localmente, acesse `localhost:8080`.  
-Clone o projeto em seu computador e em seguida configure um servidor local no MySql, coloque a **string de conexão** no arquivo `src/main/resources/application.properties` na propriedade `spring.datasource.url` no modelo **jdbc:mysql://localhost:<ServerPortBD>/<DatabaseName>?useSSL=false**, e
+Clone o projeto em seu computador e em seguida configure um servidor local no MySql, coloque a **string de conexão** no arquivo `src/main/resources/application.properties` na propriedade `spring.datasource.url` no modelo **jdbc:mysql://localhost:<ServerPortBD>/<DatabaseName>?allowPublicKeyRetrieval=true&useSSL=false**, e
 as substitua as informações de username e password pelas credenciais definidas na sua instalação local do MySql.
   
 É necessário também o download das ferramentas Maven e Postman referenciadas no cabeçalho deste documento.
