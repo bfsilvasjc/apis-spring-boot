@@ -28,8 +28,8 @@ public class VeiculoController {
     }
 
 	@RequestMapping(path = "/veiculos/find", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<VeiculoModel> find(@RequestParam(name = "q") String termo){
-        return service.buscarPorTermo(termo);
+    public List<VeiculoModel> find(@RequestParam(name = "marca") String marca, @RequestParam(name = "ano") String ano){
+        return service.buscarPorTermo(marca, ano);
     }
 	
 	@RequestMapping(path = "/veiculos/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -66,5 +66,29 @@ public class VeiculoController {
 		
 		service.deletarVeiculo(id_veiculo);
 
+    }
+	
+	@RequestMapping(path = "/veiculos/naoVendidos", method = RequestMethod.GET)
+    public Integer qtdVeiculosNaoVendidos() {
+		
+		Integer qtdVeiculos = service.qtdNaoVendidos();
+		
+        return qtdVeiculos;
+    }
+	
+	@RequestMapping(path = "/veiculos/qtdPorDecada/{decada}", method = RequestMethod.GET)
+    public Integer qtdPorDecada(@RequestParam("decada") Integer decada) {
+		
+		Integer qtdPorDecada = service.qtdPorDecada(decada);
+		
+        return qtdPorDecada;
+    }
+	
+	@RequestMapping(path = "/veiculos/regUltimaSemana/", method = RequestMethod.GET)
+    public Integer regUltimaSemana() {
+		
+		Integer regUltimaSemana = service.regUltimaSemana();
+		
+        return regUltimaSemana;
     }
 }
